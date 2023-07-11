@@ -4,7 +4,7 @@ require('dotenv').config();
 // Import required packages and modules
 const express = require('express');
 const routes = require('./routes');
-const sequelize = require('./config/connection.js');
+const sequelize = require('./config/connection');
 
 // Create an instance of the Express application
 const app = express();
