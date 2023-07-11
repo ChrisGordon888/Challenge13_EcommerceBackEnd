@@ -1,40 +1,34 @@
 # E-Commerce Backend Application
-This project is a backend solution for an e-commerce website, utilizing the power of Express.js API and Sequelize to interact with a MySQL database. This allows your company to stay competitive in the rapidly evolving e-commerce space.
+This project is a backend solution for an e-commerce website. It ustilizes the power of Express.js API and Sequelize to interact with a MySQL db. This allows a company to stay competitive in the rapidly evolving e-commerce space.
 
 # Table of Contents:
-- Installation
-- Usage
-- Testing
-- Contributing
-- License
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-# Installation <a name="installation"></a>
+## Installation 
 To install the necessary dependencies, run the following command:
 npm install
 
-# Usage <a name="usage"></a>
-Add MySQL username, MySQL password, and database name to an environment variable file. This will allow you to connect to your database using Sequelize.
+## Usage 
+Add MySQL username, MySQL password, and database name to an env file. This will allow you to connect to your database using Sequelize.
 
-Run the schema and seed commands to create your development database and seed it with test data.
+Run the schema and seed commands to create your database and seed it with data.
 
-Start the server and sync your Sequelize models to your MySQL database by invoking the application with the following command:
+Start the server and sync Sequelize models to your MySQL database by invoking the following command:
 npm start
 
 Use POSTMAN to open API GET routes for categories, products, or tags. The data for each route will be displayed in a formatted JSON.
 
-Test API POST, PUT, and DELETE routes in Insomnia Core to successfully create, update, and delete data in your database.
+Test API POST, PUT, and DELETE routes in POSTMAN to successfully create, update, and delete data in your database.
 
-# Testing <a name="testing"></a>
-For running the tests, execute the following command:
-npm test
+## Contributing
+Contributions are what make an open-source community incredible. Any contributions you make are greatly appreciated.
+1) Create your Feature Branch (git checkout -b "amazingFeature")
+2) Add and Commit your Changes (git add . and git commit -m "Added some AmazingFeatures")
+3) Push to the feature Branch (git push origin amazingFeature)
+4) Open a Pull Request
 
-# Contributing <a name="contributing"></a>
-Contributions are what make the open-source community an incredible place to be, learn, and grow. Any contributions you make are greatly appreciated.
-Fork the Project
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
-Commit your Changes (git commit -m 'Add some AmazingFeature')
-Push to the Branch (git push origin feature/AmazingFeature)
-Open a Pull Request
-
-# License <a name="license"></a>
-Distributed under the MIT License. See LICENSE for more information.
+## License 
+Distributed under the MIT License.
