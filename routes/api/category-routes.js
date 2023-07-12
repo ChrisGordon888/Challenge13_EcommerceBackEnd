@@ -63,19 +63,30 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
-    const deletedCategory = await Category.destroy({
+    const associatedProducts = await Product.findAll({
+      where: {
+        category_id: req.params.id,
+      },
+    });
+
+    if (associatedProducts.length > 0) {
+      res.status(400).json({ message: 'Cannot delete a category with associated products.' });
+    }
+
+    const category = await Category.destroy({
       where: {
         id: req.params.id,
       },
     });
 
-    if (!deletedCategory) {
+    if (!category) {
       res.status(404).json({ message: 'Category not found' });
       return;
     }
-
-    res.status(200).json(deletedCategory);
+    
+    res.status(200).json(category);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

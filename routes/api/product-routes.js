@@ -42,7 +42,8 @@ router.post('/', (req, res) => {
   */
   Product.create(req.body)
     .then((product) => {
-      if (req.body.tagIds.length) {
+      // check if tagIds exist in the request body
+      if (req.body.tagIds && req.body.tagIds.length) {
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
           return {
             product_id: product.id,
@@ -51,6 +52,7 @@ router.post('/', (req, res) => {
         });
         return ProductTag.bulkCreate(productTagIdArr);
       }
+      // if no tagIds, just respond with the product
       res.status(200).json(product);
     })
     .then((productTagIds) => res.status(200).json(productTagIds))
@@ -96,11 +98,17 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', async (req, res) => {
   try {
+    await ProductTag.destroy({
+      where: {
+        product_id: req.params.id
+      }
+    });
     const product = await Product.destroy({
       where: {
         id: req.params.id,
       },
     });
+
     if (!product) {
       res.status(404).json({ message: 'Product not found' });
       return;
